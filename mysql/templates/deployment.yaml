@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mysql
+  namespace: localhelp
+  labels:
+    app: mysql
+    purpose: deployment
+    tier: database
+    project: localhelp
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+
+  selector:
+      matchLabels:
+        app: mysql
+        tier: database
+        project: localhelp
+  template:
+     metadata:
+      labels:
+        app: mysql
+        tier: database
+        project: localhelp
+     spec:
+       containers:
+        - name: mysql
+          image: sbp828/mysql:{{ .Values.deployment.imageVersion }}
