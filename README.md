@@ -12,85 +12,28 @@ Using Helm, we can:
 * Upgrade or rollback application versions easily
 * Reuse the same deployment configuration across multiple environments
 
-
 # Helm Commands
 
-## Version
-helm version
-
-## Create Helm Chart
-helm create <chart-name>
-
-## Validate Chart
-helm lint <chart-path>
-
-## Package Chart
-helm package <chart-path>
-
-## Add Helm Repository
-helm repo add <repo-name> <repo-url>
-
-## List Helm Repositories
-helm repo list
-
-## Update Helm Repository
-helm repo update
-
-## Search Helm Charts
-helm search repo <keyword>
-
-## Install Helm Chart
-helm install <release-name> <chart-path>
-
-## Install with Namespace
-helm install <release-name> <chart-path> -n <namespace>
-
-## Install and Create Namespace
-helm install <release-name> <chart-path> -n <namespace> --create-namespace
-
-## List Helm Releases
-helm list
-
-## List Releases in All Namespaces
-helm list -A
-
-## Check Release Status
-helm status <release-name> -n <namespace>
-
-## Upgrade Release
-helm upgrade <release-name> <chart-path> -n <namespace>
-
-## Rollback Release
-helm rollback <release-name> <revision-number> -n <namespace>
-
-## View Release History
-helm history <release-name> -n <namespace>
-
-## Uninstall Release
-helm uninstall <release-name> -n <namespace>
-
-## Render Templates
-helm template <release-name> <chart-path>
-
-## Dry Run Installation
-helm install <release-name> <chart-path> --dry-run
-
-## Show Installed Manifest
-helm get manifest <release-name> -n <namespace>
-
-## Show Release Values
-helm get values <release-name> -n <namespace>
-
-## Show Complete Release Information
-helm get all <release-name> -n <namespace>
-
-## Update Chart Dependencies
-helm dependency update
-
-## List Chart Dependencies
-helm dependency list
-
-## Helm Environment Information
-helm env
-
-This command creates all required Kubernetes resources defined inside the Helm chart of frontend component.
+| Category | Command | Purpose |
+|---|---|---|
+| Version | `helm version` | Check Helm version |
+| Create Chart | `helm create <chart-name>` | Create a new Helm chart |
+| Validate | `helm lint <chart-path>` | Validate Helm chart |
+| Package | `helm package <chart-path>` | Package chart into `.tgz` |
+| Repository Add | `helm repo add <name> <url>` | Add Helm repository |
+| Repository List | `helm repo list` | List Helm repositories |
+| Repository Update | `helm repo update` | Update repository information |
+| Search | `helm search repo <keyword>` | Search Helm charts |
+| Install | `helm install <release> <chart>` | Deploy application |
+| Install Namespace | `helm install <release> <chart> -n <namespace>` | Deploy in specific namespace |
+| List Releases | `helm list` | List installed releases |
+| Status | `helm status <release> -n <namespace>` | Check release status |
+| Upgrade | `helm upgrade <release> <chart> -n <namespace>` | Update application deployment |
+| History | `helm history <release>` | View release revisions |
+| Rollback | `helm rollback <release> <revision>` | Rollback to previous version |
+| Uninstall | `helm uninstall <release>` | Remove Helm deployment |
+| Template | `helm template <release> <chart>` | Generate Kubernetes YAML |
+| Dry Run | `helm install <release> <chart> --dry-run` | Test deployment without installing |
+| Manifest | `helm get manifest <release>` | View deployed Kubernetes YAML |
+| Values | `helm get values <release>` | View configured values |
+| Dependencies | `helm dependency update` | Update chart dependencies |
